@@ -6,3 +6,8 @@ get_next_line | get_next_line.c, get_next_line_utils.c, get_next_line.h, (get_ne
 
 ## Objective
 > Write a function that returns a line read from a file descriptor.
+
+### Prototype
+```c
+char  *get_next_line(int fd);
+```
