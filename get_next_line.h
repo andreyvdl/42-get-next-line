@@ -1,0 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/03 16:09:51 by adantas-          #+#    #+#             */
+/*   Updated: 2022/10/03 16:09:52 by adantas-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
+# include <stdlib.h>
+# include <unistd.h>
+
+// get_next_line.c funcitons
+char	*get_next_line(int fd);
+char	*cpy_1_line(char *rest, char *line);
+char	*read_fd(char *rest, char *line, int fd);
+char	*until_newline(char *line, char *buf, char *rest);
+
+// get_next_line_utils.c functions
+size_t	ft_strlen(const char *s);
+void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_strchr(const char *s, int c);
+void	*ft_realloc_mod(char *ptr);
+char	*ft_strjoin_mod(char *s1, char *s2);
+
+#endif
