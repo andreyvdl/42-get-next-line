@@ -12,9 +12,6 @@
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -23,6 +20,7 @@ char	*get_next_line(int fd);
 void	cpy_1_line(char **rest, char **line);
 char	*read_fd(char **rest, char **line, int fd);
 char	*until_newline(char **line, char *buf, char **rest);
+void	secret_trick(char **rest, char *buf, size_t n);
 
 // get_next_line_utils.c functions
 size_t	ft_strlen(const char *s);

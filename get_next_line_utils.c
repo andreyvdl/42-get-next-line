@@ -6,7 +6,7 @@
 /*   By: adantas- <adantas-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 16:09:57 by adantas-          #+#    #+#             */
-/*   Updated: 2022/10/04 22:11:40 by adantas-         ###   ########.fr       */
+/*   Updated: 2022/10/06 21:28:02 by adantas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
-	while (s[i] != 0)
-		i++;
+	if (s)
+	{
+		while (s && s[i] != 0 && s[i] <= 127)
+			i++;
+	}
 	return (i);
 }
 
@@ -55,13 +58,20 @@ void	*ft_realloc_mod(char **ptr)
 	while ((*ptr)[i] != '\n' && (*ptr)[i] != 0)
 		i++;
 	j = ft_strlen(*ptr);
-	new_ptr = ft_calloc(sizeof(char), (j - i) - 1);
+	if (j - i <= 0)
+	{
+		new_ptr = ft_calloc(sizeof(char), 1);
+		free(*ptr);
+		return ((void *)new_ptr);
+	}
+	else
+		new_ptr = ft_calloc(sizeof(char), j - i + 1);
 	i++;
 	j = 0;
 	while ((*ptr)[i] != 0)
 		new_ptr[j++] = (*ptr)[i++];
 	free(*ptr);
-	*ptr = NULL;
+	*ptr = 0x0;
 	return ((void *)new_ptr);
 }
 
@@ -94,6 +104,8 @@ char	*ft_strjoin_mod(char *s1, char *s2)
 	j = 0;
 	while (s1[j] != '\0')
 		str[i++] = s1[j++];
+	free(s1);
+	s1 = 0x0;
 	j = 0;
 	while (s2[j] != '\0')
 		str[i++] = s2[j++];
