@@ -1,5 +1,9 @@
-# 42-get-next-line
+<div align="center">
+  <img src="https://github.com/gawbsouza/42-pdh/blob/main/dark/gnl_dark.svg"><br>
+  <a href="https://github.com/gawbsouza/42-pdh"><img src="https://github.com/gawbsouza/42-pdh/blob/main/badge/42pdh_badge.svg"></a>
+</div>
 
+___
 Function name | Files to turn in | External functions | Result
 --- | --- | --- | ---
 get_next_line | get_next_line.c, get_next_line_utils.c, get_next_line.h, (get_next_line_bonus.c, get_next_line_bonus.h, get_next_line_utils_bonus.c) | read, malloc, free | 125/100%
